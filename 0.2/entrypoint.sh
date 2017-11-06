@@ -12,8 +12,8 @@ UseTLS=${TLS:-'NO'}
 UseSTARTTLS=${TLS:-'NO'}
 
 [ ! $mailhub ] && echo 'mailhub is not set. eg: smtp.gmail.com:587' && exit 1
-[ ! $AuthUser ] && sed -i "s|AuthUser={{ AuthUser }}||g"
-[ ! $AuthPass ] && sed -i "s|AuthPass={{ AuthPass }}||g"
+[ ! $AuthUser ] && sed -i "s|AuthUser={{ AuthUser }}||g" $conf_custom
+[ ! $AuthPass ] && sed -i "s|AuthPass={{ AuthPass }}||g" $conf_custom
 
 sed -i "s|{{ mailhub }}|$mailhub|g" $conf_custom
 sed -i "s|{{ AuthUser }}|$AuthUser|g" $conf_custom
